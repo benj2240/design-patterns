@@ -17,7 +17,7 @@
 		cursor: pointer;
 	}
 
-	section.pattern p {
+	p {
 		margin-left: 2em;
 	}
 
@@ -57,7 +57,7 @@
 		I <em>do not</em> write libraries used by hundreds of thousands of developers.
 	</p>
 	<p>
-		The disclaimer here is that my experiences are not universal, and my advice will not be applicable to all software developers.
+		The disclaimer here is that my experiences are not universal, and my advice will not be applicable to all software, or all software developers.
 	</p>
 
 	<h3>Am I wrong?</h3>
@@ -335,9 +335,9 @@
 	</section>
 
 	<section class="pattern" id="state-section">
-		<h3 aria-controls="state-section">State: ★☆☆☆☆</h3>
+		<h3 aria-controls="state-section">State: ★★★☆☆</h3>
 		<p>
-			State is a fundamental concept. Every program has state (yes, even if it's hidden by monads or whatever).
+			State is a fundamental concept. Every nontrivial program has state (yes, even if it's hidden by monads or whatever).
 		</p>
 		<p>
 			Rating: 3/5 yes but why
@@ -359,29 +359,59 @@
 			Rating: 1/5 do not use
 		</p>
 	</section>
-<!--
+
 	<section class="pattern" id="template-method-section">
 		<h3 aria-controls="template-method-section">Template Method: ★☆☆☆☆</h3>
 		<p>
+			A Template Method is a function in a base class, which calls other "hook" functions in that class, as steps of some algorithm it is attempting to follow. Inheriting classes may override the hooks, customizing the behavior.
 		</p>
 		<p>
+			This requires every implementor of an inheriting class to first read the parent class, in its entirety, to understand each of the hooks and its purpose. Often, the Template Method's original author will fail to provide a hook that some child class needs. Or perhaps provide too many hooks, with some of them never being overridden.
 		</p>
 		<p>
-			Rating: 1/5 do not use
+			This makes the Template Method a very poor abstraction, most of the time. It doesn't make writing future code easier, and it does get in the way.
+		</p>
+		<p>
+			Rating: 1/5 just declare an interface
 		</p>
 	</section>
 
 	<section class="pattern" id="visitor-section">
 		<h3 aria-controls="visitor-section">Visitor: ★☆☆☆☆</h3>
 		<p>
+			I've read all the examples on Wikipedia and I still can't really understand what this is <em>for</em>.
 		</p>
 		<p>
-		</p>
-		<p>
-			Rating: 1/5 do not use
+			Rating: 1/5 too complicated
 		</p>
 	</section>
--->
+
+	<h2>Afterword</h2>
+
+	<h3>Just because you don't understand what it's for, doesn't mean it's not useful!</h3>
+	<p>
+		Well, I don't fully agree with that.
+	</p>
+	<p>
+		One the one hand, yes. There are millions of things I don't understand, from word processors to cars to the United States' healthcare system. And lots of those things are useful, even if there are better alternatives.
+	</p>
+	<p>
+		On the other hand, <em>the point</em> of Design Patterns is to make things easier to understand. Their explicit goal is to make software easier to implement, change, test, and reuse. How can it be easier for me to implement my application with a Bridge, when I just don't get what the Bridge is for? How can it be easier for me to change an application written with Observers, when the existence of Observers is a barrier to my understanding the application's behavior?
+	</p>
+
+	<h3>I used $PATTERN_NAME to great effect in my application!</h3>
+	<p>
+		Cool! I believe you, especially if that application was not the kind I write for my job. Again, I don't usually write large applications with complex UIs, or graphics drivers, or high-performance libraries. So my opinions stated here probably don't apply to your application.
+	</p>
+	<p>
+		In fact, I'd love to hear about it! Send me an email, or an IM, or open an issue on this repo. It's kind of hard to learn about these patterns from the toy examples people tend to blog about.
+	</p>
+
+	<h3>I maintain an application where the original authors used $PATTERN_NAME, and I'm glad they did!</h3>
+	<p>
+		Really?! I <em>especially</em> want to hear from you. Please do reach out!
+	</p>
+
 	<div id="footer" style="margin-top: 3em;">
 		<a href="https://github.com/benj2240/design-patterns">See the source here</a>
 	</div>
