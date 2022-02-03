@@ -5,8 +5,9 @@
 <title>Design Patterns, Rated</title>
 <style>
 	body {
-		width: 40em;
+		max-width: 40em;
 		margin: auto;
+		padding: 0.5em;
 	}
 
 	section.pattern h3 {
@@ -143,7 +144,7 @@
 	</section>
 
 	<section class="pattern" id="adapter-section">
-		<h3 aria-controls="adapter-section">Adapter: ★☆☆☆☆</h3>
+		<h3 aria-controls="adapter-section">Adapter: ★★★★★</h3>
 		<p>
 			An Adapter is a class that wraps around another class. Perhaps the adapter conforms to an interface that the original class doesn't quite implement. Perhaps the adapter hides details of the original class that don't matter for a certain client. Perhaps the adapter is easier to mock out for testing purposes.
 		</p>
@@ -170,10 +171,182 @@
 			Rating: 1/5 use Adapters
 		</p>
 	</section>
-<!--
 
-	<section class="pattern" id="foo-section">
-		<h3 aria-controls="foo-section">Foo: ★☆☆☆☆</h3>
+	<section class="pattern" id="composite-section">
+		<h3 aria-controls="composite-section">Composite: ★★☆☆☆</h3>
+		<p>
+			A Composite is a class that encapsulates multiple objects, allowing them to be treated as one object. Client code only needs to talk to the Composite, which will delegate calls to all of its child objects.
+		</p>
+		<p>
+			Adding a Composite layer is, by definition, more commplicated than not adding one. I rarely see a need to create a custom tree structure to represent multiple objects, and I don't think a Composite that is just a list can justify its complexity compared to a plain old <code>List</code>.
+		</p>
+		<p>
+			Rating: 2/5 do not use
+		</p>
+	</section>
+
+	<section class="pattern" id="decorator-section">
+		<h3 aria-controls="decorator-section">Decorator: ★★☆☆☆</h3>
+		<p>
+			A Decorator is an Adapter that implements the same interface as the wrapped class, and forwards all calls to the wrapped class, but performs some additional functionality before or after doing so.
+		</p>
+		<p>
+			That additional behavior could be logging, timing, or calling some additional method. Since the interface is the same, Decorators can be layered.
+		</p>
+		<p>
+			Rating: 2/5 neat but let's call it an adapter
+		</p>
+	</section>
+
+	<section class="pattern" id="facade-section">
+		<h3 aria-controls="facade-section">Facade: ★☆☆☆☆</h3>
+		<p>
+			A Facade is an Adapter, but with the stated goal of exposing a simpler interface than the wrapped class.
+		</p>
+		<p>
+			What, do most Adapters expose more complicated interfaces?
+		</p>
+		<p>
+			Rating: 1/5 call it adapter
+		</p>
+	</section>
+<!--
+	<section class="pattern" id="flyweight-section">
+		<h3 aria-controls="flyweight-section">Flyweight: ★☆☆☆☆</h3>
+		<p>
+		</p>
+		<p>
+		</p>
+		<p>
+			Rating: 1/5 do not use
+		</p>
+	</section>
+
+	<section class="pattern" id="proxy-section">
+		<h3 aria-controls="proxy-section">Proxy: ★☆☆☆☆</h3>
+		<p>
+		</p>
+		<p>
+		</p>
+		<p>
+			Rating: 1/5 do not use
+		</p>
+	</section>
+
+	<section class="pattern" id="chain-of-responsibility-section">
+		<h3 aria-controls="chain-of-responsibility-section">Chain of Responsibility: ★☆☆☆☆</h3>
+		<p>
+		</p>
+		<p>
+		</p>
+		<p>
+			Rating: 1/5 do not use
+		<p>
+	</section>
+
+	<section class="pattern" id="command-section">
+		<h3 aria-controls="command-section">Command: ★☆☆☆☆</h3>
+		<p>
+		</p>
+		<p>
+		</p>
+		<p>
+			Rating: 1/5 do not use
+		</p>
+	</section>
+
+	<section class="pattern" id="interpreter-section">
+		<h3 aria-controls="interpreter-section">Interpreter: ★☆☆☆☆</h3>
+		<p>
+		</p>
+		<p>
+		</p>
+		<p>
+			Rating: 1/5 do not use
+		</p>
+	</section>
+
+	<section class="pattern" id="iterator-section">
+		<h3 aria-controls="iterator-section">Iterator: ★☆☆☆☆</h3>
+		<p>
+		</p>
+		<p>
+		</p>
+		<p>
+			Rating: 1/5 do not use
+		</p>
+	</section>
+
+	<section class="pattern" id="mediator-section">
+		<h3 aria-controls="mediator-section">Mediator: ★☆☆☆☆</h3>
+		<p>
+		</p>
+		<p>
+		</p>
+		<p>
+			Rating: 1/5 do not use
+		</p>
+	</section>
+
+	<section class="pattern" id="memento-section">
+		<h3 aria-controls="memento-section">Memento: ★☆☆☆☆</h3>
+		<p>
+		</p>
+		<p>
+		</p>
+		<p>
+			Rating: 1/5 do not use
+		</p>
+	</section>
+
+	<section class="pattern" id="observer-section">
+		<h3 aria-controls="observer-section">Observer: ★☆☆☆☆</h3>
+		<p>
+		</p>
+		<p>
+		</p>
+		<p>
+			Rating: 1/5 do not use
+		</p>
+	</section>
+
+	<section class="pattern" id="state-section">
+		<h3 aria-controls="state-section">State: ★☆☆☆☆</h3>
+		<p>
+		</p>
+		<p>
+		</p>
+		<p>
+			Rating: 1/5 do not use
+		</p>
+	</section>
+
+	<section class="pattern" id="strategy-section">
+		<h3 aria-controls="strategy-section">Strategy: ★☆☆☆☆</h3>
+		<p>
+		</p>
+		<p>
+		</p>
+		<p>
+			Rating: 1/5 do not use
+		</p>
+	</section>
+
+	<section class="pattern" id="template-section">
+		<h3 aria-controls="template-section">Template: ★☆☆☆☆</h3>
+		<p>
+		</p>
+		<p>
+		</p>
+		<p>
+			Rating: 1/5 do not use
+		</p>
+	</section>
+
+	<section class="pattern" id="visitor-section">
+		<h3 aria-controls="visitor-section">Visitor: ★☆☆☆☆</h3>
+		<p>
+		</p>
 		<p>
 		</p>
 		<p>
@@ -181,7 +354,6 @@
 		</p>
 	</section>
 -->
-
 	<div id="footer" style="margin-top: 3em;">
 		<a href="https://github.com/benj2240/design-patterns">See the source here</a>
 	</div>
