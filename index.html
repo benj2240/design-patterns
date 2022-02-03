@@ -69,7 +69,7 @@
 	<section class="pattern" id="abstract-factory-section">
 		<h3 aria-controls="abstract-factory-section">Abstract Factory: ★☆☆☆☆</h3>
 		<p>
-			A Factory is a class used to instantiate other classes, hiding the messy details of that class's construction from the client code. The factory may even hide the concrete type of the constructed class from the client code. For example, ButtonFactory.CreateButton() may return an AbstractButton.
+			A Factory is a class used to instantiate other classes, hiding the messy details of that class's construction from the client code. The factory may even hide the concrete <em>type</em> of the constructed class from the client code. For example, ButtonFactory.CreateButton() may return an AbstractButton.
 		</p>
 		<p>
 			The Abstract Factory pattern layers more complexity on top of that. Not only do you not know the concrete type of button, but you won't even know the type of the Factory. For example, an AbstractButtonFactory may be a WindowsButtonFactory or a MacOSButtonFactory.
@@ -175,7 +175,7 @@
 	<section class="pattern" id="composite-section">
 		<h3 aria-controls="composite-section">Composite: ★★☆☆☆</h3>
 		<p>
-			A Composite is a class that encapsulates multiple objects, allowing them to be treated as one object. Client code only needs to talk to the Composite, which will delegate calls to all of its child objects.
+			A Composite is a class that encapsulates multiple objects, allowing them to be treated as one object. Client code only needs to talk to the Composite, which will delegate calls to all of its child objects. Composites may even delegate to other Composites, forming a tree structure.
 		</p>
 		<p>
 			Adding a Composite layer is, by definition, more commplicated than not adding one. I rarely see a need to create a custom tree structure to represent multiple objects, and I don't think a Composite that is just a list can justify its complexity compared to a plain old <code>List</code>.
@@ -282,7 +282,7 @@
 			An Iterator is an class that exposes properties of another class, sequentially.
 		</p>
 		<p>
-			This is built into modern languages. Even dustier languages have <code>for</code> and <code>while</code>.
+			This is built into modern languages. Even the dustier languages have <code>for</code> and <code>while</code>.
 		</p>
 		<p>
 			Rating: 1/5 do not use
@@ -350,7 +350,7 @@
 			A Strategy is a class that contains an algorithm. A program might have multiple Strategies for solving a problem, and pick which one to use at runtime.
 		</p>
 		<p>
-			One example given by Wikipedia is a validation library, which can be re-used across a system, by selecting different validation methods based on the type of data, the source of data, use choice, or other factors. This sounds like a terrible idea. Skip the Strategy Pattern, and just write the needed validation where it's needed.
+			One example given by Wikipedia is a validation library, which can be re-used across a system, by selecting different validation methods based on the type of data, the source of data, user choice, or other factors. This sounds like a terrible idea. Skip the Strategy Pattern, and just write the needed validation where it's needed.
 		</p>
 		<p>
 			Another example given by Wikipedia is a billing Strategy, that might be used to calculate prices differently during happy hour. That's just called a lambda. Or better yet, if the rule is as simple as "half price during happy hour", an <code>if</code>.
@@ -366,7 +366,7 @@
 			A Template Method is a function in a base class, which calls other "hook" functions in that class, as steps of some algorithm it is attempting to follow. Inheriting classes may override the hooks, customizing the behavior.
 		</p>
 		<p>
-			This requires every implementor of an inheriting class to first read the parent class, in its entirety, to understand each of the hooks and its purpose. Often, the Template Method's original author will fail to provide a hook that some child class needs. Or perhaps provide too many hooks, with some of them never being overridden.
+			This requires every implementor of an inheriting class to first read the base class, in its entirety, to understand each of the hooks and its purpose. Often, the Template Method's original author will fail to provide a hook that some child inheriting needs. Or perhaps provide too many hooks, with some of them never overridden by any inheriting class.
 		</p>
 		<p>
 			This makes the Template Method a very poor abstraction, most of the time. It doesn't make writing future code easier, and it does get in the way.
