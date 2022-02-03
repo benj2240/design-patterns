@@ -366,7 +366,7 @@
 			A Template Method is a function in a base class, which calls other "hook" functions in that class, as steps of some algorithm it is attempting to follow. Inheriting classes may override the hooks, customizing the behavior.
 		</p>
 		<p>
-			This requires every implementor of an inheriting class to first read the base class, in its entirety, to understand each of the hooks and its purpose. Often, the Template Method's original author will fail to provide a hook that some child inheriting needs. Or perhaps provide too many hooks, with some of them never overridden by any inheriting class.
+			This requires every implementor of an inheriting class to first read the base class, in its entirety, to understand each of the hooks and its purpose. Often, the Template Method's original author will fail to provide a hook that some inheriting class needs. Or perhaps provide too many hooks, with some of them never overridden by any inheriting class.
 		</p>
 		<p>
 			This makes the Template Method a very poor abstraction, most of the time. It doesn't make writing future code easier, and it does get in the way.
