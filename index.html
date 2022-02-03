@@ -269,7 +269,7 @@
 			An Interpreter is a program that can execute other programs written in a custom language.
 		</p>
 		<p>
-			A custom language? Really? Use the language you're in.
+			A custom language? Really?
 		</p>
 		<p>
 			Rating: 0/5 get out of my sight
@@ -301,12 +301,17 @@
 			Rating: 1/5 do not use
 		</p>
 	</section>
-<!--
+
 	<section class="pattern" id="memento-section">
 		<h3 aria-controls="memento-section">Memento: ★☆☆☆☆</h3>
 		<p>
+			A Memento is a class that holds the internal state of another class. When the other class changes, the Memento can be used to roll it back to a previous state. This could be used to build a sort of transactionality, or an undo function.
 		</p>
 		<p>
+			This pattern attempts to mitigate the difficulty of managing objects with complex, mutable state. By adding more complexity to them. Instead of making them less stateful.
+		</p>
+		<p>
+			Undo functions can also be written as a stack of actions &amp; their reversals. I would argue that this maps more closely to the semantics of "undo": un<em>doing</em> an <em>action</em>, versus restoring a state. Besides, are you writing a text editor, that you need an undo?
 		</p>
 		<p>
 			Rating: 1/5 do not use
@@ -316,8 +321,13 @@
 	<section class="pattern" id="observer-section">
 		<h3 aria-controls="observer-section">Observer: ★☆☆☆☆</h3>
 		<p>
+			An Observer is a class that reacts to changes in another class. The observed class might have a collection of Observers, and notify each of them in turn.
 		</p>
 		<p>
+			This a pub-sub system, at the object level. It's conceivable that a single application might become large enough that an Observer collection would be more practical than the observed class explicitly sending the required notifications. Conceivable... but not common.
+		</p>
+		<p>
+			An unpleasant side effect of the extra layer of abstraction is that a developer making changes to the observed class cannot easily tell where those notifications will go - or even if they go anywhere at all. So, pretending that the Observer and observed are not tightly coupled actually makes the code more difficult to maintain.
 		</p>
 		<p>
 			Rating: 1/5 do not use
@@ -327,27 +337,31 @@
 	<section class="pattern" id="state-section">
 		<h3 aria-controls="state-section">State: ★☆☆☆☆</h3>
 		<p>
+			State is a fundamental concept. Every program has state (yes, even if it's hidden by monads or whatever).
 		</p>
 		<p>
-		</p>
-		<p>
-			Rating: 1/5 do not use
+			Rating: 3/5 yes but why
 		</p>
 	</section>
 
 	<section class="pattern" id="strategy-section">
 		<h3 aria-controls="strategy-section">Strategy: ★☆☆☆☆</h3>
 		<p>
+			A Strategy is a class that contains an algorithm. A program might have multiple Strategies for solving a problem, and pick which one to use at runtime.
 		</p>
 		<p>
+			One example given by Wikipedia is a validation library, which can be re-used across a system, by selecting different validation methods based on the type of data, the source of data, use choice, or other factors. This sounds like a terrible idea. Skip the Strategy Pattern, and just write the needed validation where it's needed.
+		</p>
+		<p>
+			Another example given by Wikipedia is a billing Strategy, that might be used to calculate prices differently during happy hour. That's just called a lambda. Or better yet, if the rule is as simple as "half price during happy hour", an <code>if</code>.
 		</p>
 		<p>
 			Rating: 1/5 do not use
 		</p>
 	</section>
-
-	<section class="pattern" id="template-section">
-		<h3 aria-controls="template-section">Template: ★☆☆☆☆</h3>
+<!--
+	<section class="pattern" id="template-method-section">
+		<h3 aria-controls="template-method-section">Template Method: ★☆☆☆☆</h3>
 		<p>
 		</p>
 		<p>
