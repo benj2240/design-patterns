@@ -210,12 +210,14 @@
 			Rating: 1/5 call it adapter
 		</p>
 	</section>
-<!--
+
 	<section class="pattern" id="flyweight-section">
 		<h3 aria-controls="flyweight-section">Flyweight: ★☆☆☆☆</h3>
 		<p>
+			A Flyweight is a class that helps reduce the memory used by a collection of objects, by holding data common to those objects in a shared structure. The classic example is a text editor: Naively, each instance of the letter "A" in a document might hold its own copy of font outline, font metrics, and other formatting data. Applying the Flyweight pattern, each instance would hold only its position in the document, and a single copy of the bulky font data would be stored in the Flyweight.
 		</p>
 		<p>
+			Are you writing a text editor? No? Keep your objects simple and skip the Flyweight. Memory is cheaper than it was in 1990.
 		</p>
 		<p>
 			Rating: 1/5 do not use
@@ -225,30 +227,36 @@
 	<section class="pattern" id="proxy-section">
 		<h3 aria-controls="proxy-section">Proxy: ★☆☆☆☆</h3>
 		<p>
+			A Proxy is an Adapter.
 		</p>
 		<p>
-		</p>
-		<p>
-			Rating: 1/5 do not use
+			Rating: 1/5 it's an adapter
 		</p>
 	</section>
 
 	<section class="pattern" id="chain-of-responsibility-section">
-		<h3 aria-controls="chain-of-responsibility-section">Chain of Responsibility: ★☆☆☆☆</h3>
+		<h3 aria-controls="chain-of-responsibility-section">Chain of Responsibility: ★★☆☆☆</h3>
 		<p>
+			A Chain of Responsibility is a collection of objects that can handle client requests. Each object may choose to handle a request itself, or pass that request on to the next object in the chain.
 		</p>
 		<p>
+			This could be used to implement a throttle or retry policy, with the last link in the chain being the "actual" handler. Or perhaps different requests need to be handled in different ways, and each link could handle a specific request type.
 		</p>
 		<p>
-			Rating: 1/5 do not use
+			You know what else can handle different requests different ways? A switch statement. Keep it simple.
+		</p>
+		<p>
+			Rating: 2/5 avoid if possible
 		<p>
 	</section>
 
 	<section class="pattern" id="command-section">
 		<h3 aria-controls="command-section">Command: ★☆☆☆☆</h3>
 		<p>
+			A Command is a request or event that contains instructions on how it should be handled.
 		</p>
 		<p>
+			Why? If you're passing data around, pass data around. Keep the handler logic in the handlers.
 		</p>
 		<p>
 			Rating: 1/5 do not use
@@ -256,21 +264,25 @@
 	</section>
 
 	<section class="pattern" id="interpreter-section">
-		<h3 aria-controls="interpreter-section">Interpreter: ★☆☆☆☆</h3>
+		<h3 aria-controls="interpreter-section">Interpreter: ☆☆☆☆☆</h3>
 		<p>
+			An Interpreter is a program that can execute other programs written in a custom language.
 		</p>
 		<p>
+			A custom language? Really? Use the language you're in.
 		</p>
 		<p>
-			Rating: 1/5 do not use
+			Rating: 0/5 get out of my sight
 		</p>
 	</section>
 
 	<section class="pattern" id="iterator-section">
 		<h3 aria-controls="iterator-section">Iterator: ★☆☆☆☆</h3>
 		<p>
+			An Iterator is an class that exposes properties of another class, sequentially.
 		</p>
 		<p>
+			This is built into modern languages. Even dustier languages have <code>for</code> and <code>while</code>.
 		</p>
 		<p>
 			Rating: 1/5 do not use
@@ -280,14 +292,16 @@
 	<section class="pattern" id="mediator-section">
 		<h3 aria-controls="mediator-section">Mediator: ★☆☆☆☆</h3>
 		<p>
+			A Mediator is a class that coordinates communication between other classes.
 		</p>
 		<p>
+			Just have your other classes communicate with each other.
 		</p>
 		<p>
 			Rating: 1/5 do not use
 		</p>
 	</section>
-
+<!--
 	<section class="pattern" id="memento-section">
 		<h3 aria-controls="memento-section">Memento: ★☆☆☆☆</h3>
 		<p>
