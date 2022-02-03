@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Design Patterns, Rated</title>
+<style>
+	body {
+		width: 40em;
+		margin: auto;
+	}
+
+	section.pattern h3 {
+		padding: 0.2em;
+		width: fit-content;
+		border-radius: 0.2em;
+		cursor: pointer;
+	}
+
+	section.pattern p {
+		margin-left: 2em;
+	}
+
+	section.pattern h3:hover {
+		background-color: lightgrey;
+	}
+
+	section.pattern[aria-expanded="false"] p {
+		display: none;
+	}
+</style>
+</head>
+<body>
+	<h1>Design Patterns, Rated</h1>
+	<h2>Preamble</h2>
+
+	<h3>What is this?</h3>
+	<p>
+		This is my response to the popular notion that the twenty-three Gang of Four design patterns are useful.
+		In interviews, in book clubs, in architecture discussions, we say "design patterns" and nod sagely to each other.
+		"Yes, the wisdom of our elders. We all should strive to meet the ideals of the Patterns of Design."
+	</p>
+	<p>
+		Well, I think that's bunk.
+		I think most of those design patterns are obsolete, or unnecessary.
+		If I got a pull request to add a design pattern to my codebase, I would probably reject it.
+	</p>
+	<p>
+		Your eyebrows may be raised, dear reader. If so, read on.
+	</p>
+
+	<h3>Who am I?</h3>
+	<p>
+		I am a full-stack .NET developer.
+		I write web services, windows services, and websites. Sometimes utility-style applications, usually without a GUI.
+		I write C#, SQL queries, CSS, and XML transforms.
+		I <em>do not</em> write libraries used by hundreds of thousands of developers.
+	</p>
+	<p>
+		The disclaimer here is that my experiences are not universal, and my advice will not be applicable to all software developers.
+	</p>
+
+	<h3>Am I wrong?</h3>
+	<p>
+		Probably! Let's talk about it. But first, pick a pattern below and see if you disagree with me.
+	</p>
+
+	<h2>The Patterns</h2>
+	<section class="pattern" id="abstract-factory-section">
+		<h3 aria-controls="abstract-factory-section">Abstract Factory: ★☆☆☆☆</h3>
+		<p>
+			A Factory is a class used to instantiate other classes, hiding the messy details of that class's construction from the client code. The factory may even hide the concrete type of the constructed class from the client code. For example, ButtonFactory.CreateButton() may return an AbstractButton.
+		</p>
+		<p>
+			The Abstract Factory pattern layers more complexity on top of that. Not only do you not know the concrete type of button, but you won't even know the type of the Factory. For example, an AbstractButtonFactory may be a WindowsButtonFactory or a MacOSButtonFactory.
+		</p>
+		<p>
+			But, at some point, the AbstractFactory needs to be instantiated. At that point, the type is known. What is gained by hiding the type afterwards?
+		</p>
+		<p>
+			Show me an application that uses an Abstract Factory, give me a few minutes, and I'll show you a simpler application, with identical behavior, that doesn't.
+		</p>
+		<p>
+			Rating: 1/5 do not use
+		</p>
+	</section>
+
+	<section class="pattern" id="builder-section">
+		<h3 aria-controls="builder-section">Builder: ★★☆☆☆</h3>
+		<p>
+			A Builder is a class used to instantiate other classes, hiding the messy details of that class's construction from the client code. It could be used to control the order in which properties are instantiated, or prevent certain combinations of properties.
+		</p>
+		<p>
+			Constructors can also do these things. So can factories.
+		</p>
+		<p>
+			Consider <code>BicycleBuilder.WithHeight(29).WithColor("red").Create();</code>. What has been gained over <code>new Bicycle(height: 29, color: "red");</code>?
+		</p>
+		<p>
+			Rating: 2/5 do not use
+		</p>
+	</section>
+
+	<section class="pattern" id="factory-section">
+		<h3 aria-controls="factory-section">Factory: ★★★★☆</h3>
+		<p>
+			A Factory is a class used to instantiate other classes, hiding the messy details of that class's construction from the client code. It can also be used to instantiate dependencies meant to have a limited lifecycle, which could not otherwise be injected into client code.
+		</p>
+		<p>
+			This is useful.
+		</p>
+		<p>
+			Rating: 4/5 use sparingly
+		</p>
+	</section>
+
+	<section class="pattern" id="Prototype-section">
+		<h3 aria-controls="Prototype-section">Prototype: ★☆☆☆☆</h3>
+		<p>
+			A Prototype is an object used to instantiate other objects, by cloning itself.
+		</p>
+		<p>
+			Just create the new objects. Use a Factory if it helps.
+		</p>
+		<p>
+			Rating: 1/5 do not use
+		</p>
+	</section>
+
+	<section class="pattern" id="singleton-section">
+		<h3 aria-controls="singleton-section">Singleton: ★☆☆☆☆</h3>
+		<p>
+			A Singleton is a class which can only be instantiated once. Client code would call <code>FooSingle.GetInstance()</code> rather than <code>new FooSingle()</code>.
+		</p>
+		<p>
+			This does not solve any problem that could not be solved with a properly-scoped variable, static class, or <code>Lazy&lt;T&gt;</code> initializer.
+		</p>
+		<p>
+			It introduces new problems, in that its scope is no longer clear. Testing and debugging are also made more complicated, although that also applies to global variables and static classes as well. That's why we try to avoid them.
+		</p>
+		<p>
+			Rating: 1/5 do not use
+		</p>
+	</section>
+
+	<section class="pattern" id="adapter-section">
+		<h3 aria-controls="adapter-section">Adapter: ★☆☆☆☆</h3>
+		<p>
+			An Adapter is a class that wraps around another class. Perhaps the adapter conforms to an interface that the original class doesn't quite implement. Perhaps the adapter hides details of the original class that don't matter for a certain client. Perhaps the adapter is easier to mock out for testing purposes.
+		</p>
+		<p>
+			Adding an adapter layer is, by definition, more complicated than not adding one. But that complexity in structure can easily pay off in making the client easier to write.
+		</p>
+		<p>
+			Rating: 5/5 apply as needed
+		</p>
+	</section>
+
+	<section class="pattern" id="bridge-section">
+		<h3 aria-controls="bridge-section">Bridge: ★☆☆☆☆</h3>
+		<p>
+			A Bridge is, as far as I can tell, an Adapter. I've spent 2 whole minutes on the wikipedia page and I can't tell what the benefit is supposed to be.
+		</p>
+		<p>
+			This phrase jumps out though: <em>"A compile-time binding between an abstraction and its implementation should be avoided so that an implementation can be selected at run-time"</em>.
+		</p>
+		<p>
+			Why? When don't you know the implementation at compile time? Why would you need this flexibility?
+		</p>
+		<p>
+			Rating: 1/5 use Adapters
+		</p>
+	</section>
+<!--
+
+	<section class="pattern" id="foo-section">
+		<h3 aria-controls="foo-section">Foo: ★☆☆☆☆</h3>
+		<p>
+		</p>
+		<p>
+			Rating: 1/5 do not use
+		</p>
+	</section>
+-->
+
+	<div id="footer" style="margin-top: 3em;">
+		<a href="https://github.com/benj2240/design-patterns">See the source here</a>
+	</div>
+<script>
+Array.from(document.querySelectorAll("section.pattern h3"))
+	.forEach(function(sectionHeader) {
+		sectionHeader.parentNode.setAttribute("aria-expanded", "false");
+		sectionHeader.title = "Click to expand";
+		sectionHeader.addEventListener("click", function () {
+			var currentlyExpanded = "true" === sectionHeader.parentNode.getAttribute("aria-expanded");
+			sectionHeader.parentNode.setAttribute("aria-expanded", !currentlyExpanded);
+		})
+	});
+</script>
+</body>
+</html>
