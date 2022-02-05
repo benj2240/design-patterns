@@ -8,33 +8,38 @@
 		max-width: 40em;
 		margin: auto;
 		padding: 0.5em;
-	}
-
-	section.pattern h3 {
-		padding: 0.2em;
-		width: fit-content;
-		border-radius: 0.2em;
-		cursor: pointer;
+		margin: 0;
 	}
 
 	p {
 		margin-left: 2em;
 	}
 
-	section.pattern h3:hover {
-		background-color: lightgrey;
+	section h3 {
+		padding: 0.25em;
+		margin: 0.25em;
+		min-width: 10em;
+		max-width: 20em;
+		border-radius: 0.25em;
 	}
 
-	section.pattern[aria-expanded="false"] p {
+	.rating {
+		float: right;
+	}
+
+	[aria-controls]:hover {
+		background-color: lightgrey;
+		cursor: pointer;
+	}
+
+	[aria-hidden="true"] {
 		display: none;
 	}
 </style>
 </head>
 <body>
 	<h1>Design Patterns, Rated</h1>
-	<h2>Preamble</h2>
-
-	<h3>What is this?</h3>
+	<h2>What is this?</h2>
 	<p>
 		This is my response to the popular notion that the twenty-three Gang of Four design patterns are useful.
 		In interviews, in book clubs, in architecture discussions, we say "design patterns" and nod sagely to each other.
@@ -46,28 +51,13 @@
 		If I got a pull request to add a design pattern to my codebase, I would probably reject it.
 	</p>
 	<p>
-		Your eyebrows may be raised, dear reader. If so, read on.
+		Please, pick a pattern and see if you disagree!
 	</p>
 
-	<h3>Who am I?</h3>
-	<p>
-		I am a full-stack .NET developer.
-		I write web services, windows services, and websites. Sometimes utility-style applications, usually without a GUI.
-		I write C#, SQL queries, CSS, and XML transforms.
-		I <em>do not</em> write libraries used by hundreds of thousands of developers.
-	</p>
-	<p>
-		The disclaimer here is that my experiences are not universal, and my advice will not be applicable to all software, or all software developers.
-	</p>
-
-	<h3>Am I wrong?</h3>
-	<p>
-		Probably! Let's talk about it. But first, pick a pattern below and see if you disagree with me.
-	</p>
-
-	<h2>The Patterns</h2>
-	<section class="pattern" id="abstract-factory-section">
-		<h3 aria-controls="abstract-factory-section">Abstract Factory: ★☆☆☆☆</h3>
+	<hr>
+	<h2 id="all-patterns-header">The Patterns</h2>
+	<section id="abstract-factory-section">
+		<h3>Abstract Factory: <span class="rating">★☆☆☆☆</span></h3>
 		<p>
 			A Factory is a class used to instantiate other classes, hiding the messy details of that class's construction from the client code. The factory may even hide the concrete <em>type</em> of the constructed class from the client code. For example, ButtonFactory.CreateButton() may return an AbstractButton.
 		</p>
@@ -85,8 +75,8 @@
 		</p>
 	</section>
 
-	<section class="pattern" id="builder-section">
-		<h3 aria-controls="builder-section">Builder: ★★☆☆☆</h3>
+	<section id="builder-section">
+		<h3>Builder: <span class="rating">★★☆☆☆</span></h3>
 		<p>
 			A Builder is a class used to instantiate other classes, hiding the messy details of that class's construction from the client code. It could be used to control the order in which properties are instantiated, or prevent certain combinations of properties.
 		</p>
@@ -101,8 +91,8 @@
 		</p>
 	</section>
 
-	<section class="pattern" id="factory-section">
-		<h3 aria-controls="factory-section">Factory: ★★★★☆</h3>
+	<section id="factory-section">
+		<h3>Factory: <span class="rating">★★★★☆</span></h3>
 		<p>
 			A Factory is a class used to instantiate other classes, hiding the messy details of that class's construction from the client code. It can also be used to instantiate dependencies meant to have a limited lifecycle, which could not otherwise be injected into client code.
 		</p>
@@ -114,8 +104,8 @@
 		</p>
 	</section>
 
-	<section class="pattern" id="Prototype-section">
-		<h3 aria-controls="Prototype-section">Prototype: ★☆☆☆☆</h3>
+	<section id="Prototype-section">
+		<h3>Prototype: <span class="rating">★☆☆☆☆</span></h3>
 		<p>
 			A Prototype is an object used to instantiate other objects, by cloning itself.
 		</p>
@@ -127,8 +117,8 @@
 		</p>
 	</section>
 
-	<section class="pattern" id="singleton-section">
-		<h3 aria-controls="singleton-section">Singleton: ★☆☆☆☆</h3>
+	<section id="singleton-section">
+		<h3>Singleton: <span class="rating">★☆☆☆☆</span></h3>
 		<p>
 			A Singleton is a class which can only be instantiated once. Client code would call <code>FooSingle.GetInstance()</code> rather than <code>new FooSingle()</code>.
 		</p>
@@ -143,8 +133,8 @@
 		</p>
 	</section>
 
-	<section class="pattern" id="adapter-section">
-		<h3 aria-controls="adapter-section">Adapter: ★★★★★</h3>
+	<section id="adapter-section">
+		<h3>Adapter: <span class="rating">★★★★★</span></h3>
 		<p>
 			An Adapter is a class that wraps around another class. Perhaps the adapter conforms to an interface that the original class doesn't quite implement. Perhaps the adapter hides details of the original class that don't matter for a certain client. Perhaps the adapter is easier to mock out for testing purposes.
 		</p>
@@ -156,8 +146,8 @@
 		</p>
 	</section>
 
-	<section class="pattern" id="bridge-section">
-		<h3 aria-controls="bridge-section">Bridge: ★☆☆☆☆</h3>
+	<section id="bridge-section">
+		<h3>Bridge: <span class="rating">★☆☆☆☆</span></h3>
 		<p>
 			A Bridge is, as far as I can tell, an Adapter. I've spent 2 whole minutes on the wikipedia page and I can't tell what the benefit is supposed to be.
 		</p>
@@ -172,8 +162,8 @@
 		</p>
 	</section>
 
-	<section class="pattern" id="composite-section">
-		<h3 aria-controls="composite-section">Composite: ★★☆☆☆</h3>
+	<section id="composite-section">
+		<h3>Composite: <span class="rating">★★☆☆☆</span></h3>
 		<p>
 			A Composite is a class that encapsulates multiple objects, allowing them to be treated as one object. Client code only needs to talk to the Composite, which will delegate calls to all of its child objects. Composites may even delegate to other Composites, forming a tree structure.
 		</p>
@@ -185,8 +175,8 @@
 		</p>
 	</section>
 
-	<section class="pattern" id="decorator-section">
-		<h3 aria-controls="decorator-section">Decorator: ★★☆☆☆</h3>
+	<section id="decorator-section">
+		<h3>Decorator: <span class="rating">★★☆☆☆</span></h3>
 		<p>
 			A Decorator is an Adapter that implements the same interface as the wrapped class, and forwards all calls to the wrapped class, but performs some additional functionality before or after doing so.
 		</p>
@@ -198,8 +188,8 @@
 		</p>
 	</section>
 
-	<section class="pattern" id="facade-section">
-		<h3 aria-controls="facade-section">Facade: ★☆☆☆☆</h3>
+	<section id="facade-section">
+		<h3>Facade: <span class="rating">★☆☆☆☆</span></h3>
 		<p>
 			A Facade is an Adapter, but with the stated goal of exposing a simpler interface than the wrapped class.
 		</p>
@@ -211,8 +201,8 @@
 		</p>
 	</section>
 
-	<section class="pattern" id="flyweight-section">
-		<h3 aria-controls="flyweight-section">Flyweight: ★☆☆☆☆</h3>
+	<section id="flyweight-section">
+		<h3>Flyweight: <span class="rating">★☆☆☆☆</span></h3>
 		<p>
 			A Flyweight is a class that helps reduce the memory used by a collection of objects, by holding data common to those objects in a shared structure. The classic example is a text editor: Naively, each instance of the letter "A" in a document might hold its own copy of font outline, font metrics, and other formatting data. Applying the Flyweight pattern, each instance would hold only its position in the document, and a single copy of the bulky font data would be stored in the Flyweight.
 		</p>
@@ -224,8 +214,8 @@
 		</p>
 	</section>
 
-	<section class="pattern" id="proxy-section">
-		<h3 aria-controls="proxy-section">Proxy: ★☆☆☆☆</h3>
+	<section id="proxy-section">
+		<h3>Proxy: <span class="rating">★☆☆☆☆</span></h3>
 		<p>
 			A Proxy is an Adapter.
 		</p>
@@ -234,8 +224,8 @@
 		</p>
 	</section>
 
-	<section class="pattern" id="chain-of-responsibility-section">
-		<h3 aria-controls="chain-of-responsibility-section">Chain of Responsibility: ★★☆☆☆</h3>
+	<section id="chain-of-responsibility-section">
+		<h3>Chain of Responsibility: <span class="rating">★★☆☆☆</span></h3>
 		<p>
 			A Chain of Responsibility is a collection of objects that can handle client requests. Each object may choose to handle a request itself, or pass that request on to the next object in the chain.
 		</p>
@@ -250,8 +240,8 @@
 		<p>
 	</section>
 
-	<section class="pattern" id="command-section">
-		<h3 aria-controls="command-section">Command: ★☆☆☆☆</h3>
+	<section id="command-section">
+		<h3>Command: <span class="rating">★☆☆☆☆</span></h3>
 		<p>
 			A Command is a request or event that contains instructions on how it should be handled.
 		</p>
@@ -263,8 +253,8 @@
 		</p>
 	</section>
 
-	<section class="pattern" id="interpreter-section">
-		<h3 aria-controls="interpreter-section">Interpreter: ☆☆☆☆☆</h3>
+	<section id="interpreter-section">
+		<h3>Interpreter: <span class="rating">☆☆☆☆☆</span></h3>
 		<p>
 			An Interpreter is a program that can execute other programs written in a custom language.
 		</p>
@@ -276,8 +266,8 @@
 		</p>
 	</section>
 
-	<section class="pattern" id="iterator-section">
-		<h3 aria-controls="iterator-section">Iterator: ★☆☆☆☆</h3>
+	<section id="iterator-section">
+		<h3>Iterator: <span class="rating">★☆☆☆☆</span></h3>
 		<p>
 			An Iterator is an class that exposes properties of another class, sequentially.
 		</p>
@@ -289,8 +279,8 @@
 		</p>
 	</section>
 
-	<section class="pattern" id="mediator-section">
-		<h3 aria-controls="mediator-section">Mediator: ★☆☆☆☆</h3>
+	<section id="mediator-section">
+		<h3>Mediator: <span class="rating">★☆☆☆☆</span></h3>
 		<p>
 			A Mediator is a class that coordinates communication between other classes.
 		</p>
@@ -302,8 +292,8 @@
 		</p>
 	</section>
 
-	<section class="pattern" id="memento-section">
-		<h3 aria-controls="memento-section">Memento: ★☆☆☆☆</h3>
+	<section id="memento-section">
+		<h3>Memento: <span class="rating">★☆☆☆☆</span></h3>
 		<p>
 			A Memento is a class that holds the internal state of another class. When the other class changes, the Memento can be used to roll it back to a previous state. This could be used to build a sort of transactionality, or an undo function.
 		</p>
@@ -318,8 +308,8 @@
 		</p>
 	</section>
 
-	<section class="pattern" id="observer-section">
-		<h3 aria-controls="observer-section">Observer: ★☆☆☆☆</h3>
+	<section id="observer-section">
+		<h3>Observer: <span class="rating">★☆☆☆☆</span></h3>
 		<p>
 			An Observer is a class that reacts to changes in another class. The observed class might have a collection of Observers, and notify each of them in turn.
 		</p>
@@ -334,8 +324,8 @@
 		</p>
 	</section>
 
-	<section class="pattern" id="state-section">
-		<h3 aria-controls="state-section">State: ★★★☆☆</h3>
+	<section id="state-section">
+		<h3>State: <span class="rating">★★★☆☆</span></h3>
 		<p>
 			State is a fundamental concept. Every nontrivial program has state (yes, even if it's hidden by monads or whatever).
 		</p>
@@ -344,8 +334,8 @@
 		</p>
 	</section>
 
-	<section class="pattern" id="strategy-section">
-		<h3 aria-controls="strategy-section">Strategy: ★☆☆☆☆</h3>
+	<section id="strategy-section">
+		<h3>Strategy: <span class="rating">★☆☆☆☆</span></h3>
 		<p>
 			A Strategy is a class that contains an algorithm. A program might have multiple Strategies for solving a problem, and pick which one to use at runtime.
 		</p>
@@ -360,8 +350,8 @@
 		</p>
 	</section>
 
-	<section class="pattern" id="template-method-section">
-		<h3 aria-controls="template-method-section">Template Method: ★☆☆☆☆</h3>
+	<section id="template-method-section">
+		<h3>Template Method: <span class="rating">★☆☆☆☆</span></h3>
 		<p>
 			A Template Method is a function in a base class, which calls other "hook" functions in that class, as steps of some algorithm it is attempting to follow. Inheriting classes may override the hooks, customizing the behavior.
 		</p>
@@ -376,8 +366,8 @@
 		</p>
 	</section>
 
-	<section class="pattern" id="visitor-section">
-		<h3 aria-controls="visitor-section">Visitor: ★☆☆☆☆</h3>
+	<section id="visitor-section">
+		<h3>Visitor: <span class="rating">★☆☆☆☆</span></h3>
 		<p>
 			I've read all the examples on Wikipedia and I still can't really understand what this is <em>for</em>.
 		</p>
@@ -386,7 +376,8 @@
 		</p>
 	</section>
 
-	<h2>Afterword</h2>
+	<hr>
+	<h2>FAQ</h2>
 
 	<h3>Just because you don't understand what it's for, doesn't mean it's not useful!</h3>
 	<p>
@@ -398,8 +389,22 @@
 	<p>
 		On the other hand, <em>the point</em> of Design Patterns is to make things easier to understand. Their explicit goal is to make software easier to implement, change, test, and reuse. How can it be easier for me to implement my application with a Bridge, when I just don't get what the Bridge is for? How can it be easier for me to change an application written with Observers, when the existence of Observers is a barrier to my understanding the application's behavior?
 	</p>
+	<p>
+		This is my overarching point. Most software is written once and read many times, so when writing we should be as kind as possible to the future readers. In my opinion, one of the best ways to do that is to avoid unnecessary layers of abstraction. It's fair to require future readers to read the code they're about to modify; I believe it's unfair to <em>also</em> require them to read a book first.
+	</p>
 
-	<h3>I used $PATTERN_NAME to great effect in my application!</h3>
+	<h3>Who are you, anyway?</h3>
+	<p>
+		I am a full-stack .NET developer.
+		I write web services, windows services, and websites. Sometimes utility-style applications, usually without a GUI.
+		I write C#, SQL queries, CSS, and XML transforms.
+		I <em>do not</em> write libraries used by hundreds of thousands of developers.
+	</p>
+	<p>
+		The disclaimer here is that my experiences are not universal, and my advice will not be applicable to all software, or all software developers.
+	</p>
+
+	<h3>I used <code>$Pattern</code> to great effect in my application!</h3>
 	<p>
 		Cool! I believe you, especially if that application was not the kind I write for my job. Again, I don't usually write large applications with complex UIs, or graphics drivers, or high-performance libraries. So my opinions stated here probably don't apply to your application.
 	</p>
@@ -407,7 +412,12 @@
 		In fact, I'd love to hear about it! Send me an email, or an IM, or open an issue on this repo. It's kind of hard to learn about these patterns from the toy examples people tend to blog about.
 	</p>
 
-	<h3>I maintain an application where the original authors used $PATTERN_NAME, and I'm glad they did!</h3>
+	<h3>Why are you on a crusade to eradicate design patterns?</h3>
+	<p>
+		That would be unnreasonable, wouldn't it? No, I'm not suggesting we should remove design patterns from all software. I am saying that, when I build an application, I prefer to frame the process as "How can I solve this problem?" rather than "Which design pattern can I use here?". In fact, I'm betting you do, too.
+	</p>
+
+	<h3>I maintain an application where the original authors used <code>$Pattern</code>, and I'm glad they did!</h3>
 	<p>
 		Really?! I <em>especially</em> want to hear from you. Please do reach out!
 	</p>
@@ -416,15 +426,68 @@
 		<a href="https://github.com/benj2240/design-patterns">See the source here</a>
 	</div>
 <script>
-Array.from(document.querySelectorAll("section.pattern h3"))
-	.forEach(function(sectionHeader) {
-		sectionHeader.parentNode.setAttribute("aria-expanded", "false");
-		sectionHeader.title = "Click to expand";
-		sectionHeader.addEventListener("click", function () {
-			var currentlyExpanded = "true" === sectionHeader.parentNode.getAttribute("aria-expanded");
-			sectionHeader.parentNode.setAttribute("aria-expanded", !currentlyExpanded);
-		})
+// When the page is loaded, hide all sections, and set up ways to unhide them.
+// If JS is disabled, all sections will remain visible.
+(function () {
+	// We will track whether any sections are hidden. At first, they all are.
+	let ANY_HIDDEN = true;
+
+	// We will provide a button to expand all sections with one click
+	const toggleButton = document.createElement("button");
+	toggleButton.textContent = "Expand All";
+	toggleButton.style.float = "right";
+	document.getElementById("all-patterns-header").appendChild(toggleButton);
+
+	toggleButton.addEventListener("click", function () {
+		if (ANY_HIDDEN) {
+			document.querySelectorAll("[aria-expanded='false'] [aria-controls]").forEach(h3 => h3.click());
+			setAnyHidden(false);
+		}
+		else {
+			document.querySelectorAll("[aria-controls]").forEach(h3 => h3.click());
+			setAnyHidden(true);
+		}
 	});
+
+	// Any time something is hidden or unhidden, the button text may change.
+	function setAnyHidden (anyHidden) {
+		if (typeof anyHidden === "boolean") {
+			// If the caller knows whether anything is hidden, trust them.
+			ANY_HIDDEN = anyHidden;
+		}
+		else {
+			// If they don't know, find out yourself.
+			ANY_HIDDEN = !!document.querySelector("[aria-expanded='false']");
+		}
+
+		// Either way, make sure the button text is correct.
+		toggleButton.textContent = ANY_HIDDEN ? "Expand All" : "Collapse All";
+	}
+
+	// Each section is controllable individually by clicking its header.
+	document.querySelectorAll("section")
+		.forEach(function(section) {
+			const sectionHeader = section.querySelector("h3");
+			const paragraphs = section.querySelectorAll("p");
+
+			// Wire up some accessibility hints.
+			section.setAttribute("aria-expanded", "false");
+			sectionHeader.setAttribute("aria-controls", section.id);
+			sectionHeader.title = "Click to expand";
+			paragraphs.forEach(p => p.setAttribute("aria-hidden", "true"));
+
+			// Clicking the header changes the aria hints on the section and all paragraphs.
+			function toggleExpanded () {
+				const wasExpanded = "true" === sectionHeader.parentNode.getAttribute("aria-expanded");
+				const isExpanded = !wasExpanded
+				section.setAttribute("aria-expanded", isExpanded);
+				paragraphs.forEach(p => p.setAttribute("aria-hidden", !isExpanded));
+				setAnyHidden();
+			}
+
+			sectionHeader.addEventListener("click", toggleExpanded);
+		});
+})();
 </script>
 </body>
 </html>
