@@ -367,12 +367,15 @@
 	</section>
 
 	<section id="visitor-section">
-		<h3>Visitor: <span class="rating">★☆☆☆☆</span></h3>
+		<h3>Visitor: <span class="rating">★★☆☆☆</span></h3>
 		<p>
-			I've read all the examples on Wikipedia and I still can't really understand what this is <em>for</em>.
+			A Visitor is a class that performs some action on each object of a collection. Normally those objects might perform actions themselves, but perhaps the Visitor has some functionality that doesn't really fit into those objects.
 		</p>
 		<p>
-			Rating: 1/5 too complicated
+			For example, a video game may have a collection of actors: players, enemies, items, etc. Each of these knows how to interact with each other, but none of them know how to interact with the save system. The code to iterate over the objects in the game's state, in order to export them to a save file, might live in a Visitor.
+		</p>
+		<p>
+			Rating: 2/5 useful but complicated
 		</p>
 	</section>
 
