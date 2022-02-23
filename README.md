@@ -2,4 +2,4 @@
 
 I don't like 'em.
 
-[Read about it here](https://benj2240.github.io/design-patterns/).
+This repository is moving to [my SourceHut-hosted blog](https://passionatepragmatism.blog/design-patterns.html).
